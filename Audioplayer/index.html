@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="author" content="Thomas Dittmar">
+  <title>Audio-MP3-Player</title>
+
+  <link rel="stylesheet" href="css/jqcss.css" type="text/css">
+  <link rel="stylesheet" href="css/ui.css" type="text/css">
+  <link rel="stylesheet" href="css/eq.css" type="text/css">
+  <link rel="stylesheet" href="css/index.css" type="text/css">
+  <link rel="icon" href="Symbole/plist2.png">
+
+  <script src="js/jq2.js"></script>
+  <script src="js/jqui2.js"></script>
+  <script src="js/equalizer.js"></script>
+  <script src="js/equalizer2.js"></script>
+  <script src="js/filesaver.js"></script>
+  <script src="js/index.js"></script>
+</head>
+
+<body style="background: url(Symbole/cld.jpg);">
+  <div style="background: #151515;">
+    <center>&nbsp;
+      <br>
+      <table style="background: rebeccapurple; width: 99%;"  id="vidarea" border="0"
+        align="center">
+        <tbody>
+          <tr align="center">
+            <td
+              style="height: 50px; font-size: 20px; font-weight: bold; background: rgb(75, 8, 138); color: black; width: 14.2857%;"
+              colspan="4">
+              <audio id="player1" style="width: 100%; background: rgb(21, 21, 21);">
+              </audio>
+              <br>
+              <div id="trackarea">
+                <table class="elementselect"
+                  style="width: 90%; background: grey; border-width: 4px; border-style: outset; border-color: skyblue;"
+                  id="videotable" align="center">
+                  <thead>
+                    <tr>
+                      <th
+                        style="height: 25px; width: 15%; background: rgb(21, 21, 21); text-align: center; vertical-align: middle; color: rgb(255, 255, 255); font-weight: bold; font-family: Arial; font-size: 20px;"
+                        >Track-Nr.<br>
+                      </th>
+                      <th
+                        style="height: 25px; width: 85%; background: rgb(21, 21, 21); color: rgb(255, 255, 255); font-weight: bold; font-family: Arial; font-size: 30px; text-align: center; vertical-align: middle;"
+                        >Track<br>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  </tbody>
+                </table>&nbsp;
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td
+              style="height: 150px; font-size: 20px; font-weight: bold; background: rgb(21, 21, 21); color: white; text-align: center; vertical-align: middle;"
+              colspan="4" align="center">
+              <p class="player1 equalizer" style="width: 99%; height: 100%; background: rgb(28, 28, 28); text-align: center;"><br>
+              </p>
+            </td>
+          </tr>
+          <tr>
+            <td id="searchbox" style="width: 14.2857%; cursor: pointer;" colspan="4">
+              <div id="search" style="background: yellow; width: 100%; height: 15px;">
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td style="width: 32%; text-align: left; background: indigo;">
+              <button id="play" class="played">▶</button>
+              <button id="trackcount1" title="Switch Track Up">«</button>
+              <button id="trackcount2" title="Switch Track Down">»</button>
+              <button id="pitchup" title="Switch Pitch Up">⇑</button>
+              <button id="pitchdown" title="Switch Track Down">⇓</button>
+              <input type="number" class="protokoll2" style="width: 65px;" step="0.05" id="pitchRate" value="1" title="Current Pitchrate">
+              <button id="full1" title="Play Track Reverse">RW</button>&nbsp;
+            </td>
+            <td style="width: 14.2857%; text-align: center; background: indigo; vertical-align: middle;">
+              <p
+                style="width: 85%; height: 15px; background: linear-gradient(to right, rgb(0, 165, 0), rgb(255, 0, 0), rgb(164, 0, 255)); border-width: 4px; border-style: outset; border-color: rgb(46, 154, 254);"
+                id="volumer" title="Volume"><br>
+              </p>
+            </td>
+            <td style="width: 14.2857%; text-align: center; background: indigo; vertical-align: middle;">
+              <p
+                style="width: 85%; height: 15px; background: linear-gradient(to right, rgb(0, 165, 0), rgb(255, 0, 0), rgb(164, 0, 255)); border-width: 4px; border-style: outset; border-color: rgb(46, 154, 254);"
+                id="pitcher" align="center" title="Pitch"><br>
+              </p>
+            </td>
+            <td id="playtime"
+              style="width: 14.2857%; text-align: center; background: indigo; font-size: 40px; color: white; font-weight: bold;"
+              >00:00</td>
+          </tr>
+          <tr>
+            <td
+              style="height: 30px; font-size: 20px; font-weight: bold; background: rgb(75, 8, 138); color: black; width: 14.2857%;"
+              colspan="4"  align="center">
+              <input type="file" id="maudiofile" accept="audio/mp3" style="display:none;" multiple="">
+              <button id="btn1" style="background:navy;"><img src="Symbole/open.png"
+                  style="width:18px; height:18px;">Load Tracks</button>
+              <button id="del1"><img src="Symbole/delete.png" style="width:18px; height:18px;" title="Delete Track"></button>
+              <button id="btn2" style="background: navy; width: 200px;">
+                <img src="Symbole/export2.png" style="width:18px; height:18px;">&nbsp;Save</button>
+              <input type="text" class="protokoll2"
+                style="background: navy; color: rgb(255, 255, 255); font-weight: bold; font-family: Arial; font-size: 15px;"
+                id="filepath" value="file://localhost/c:/Users/sonvt/Music/" title="Track-Path in Explorer">&nbsp;
+              <button id="trforw"
+                style="background: linear-gradient(to right, rgb(49, 49, 0), rgb(255, 255, 0), rgb(36, 35, 0)); font-weight: bold; font-family: Arial; font-size: 16px; color: rgb(255, 255, 255); border-width: 4px; border-style: outset; border-color: yellow; border-radius: 15px;" title="Tracklist Forward">TR
+                Forw</button>&nbsp;
+              <button id="trrew" title="Tracklist Reverse">TR Rev</button>&nbsp;
+              <button id="btn4">Random</button>
+            </td>
+          </tr>
+          <tr>
+            <td
+              style="height: 30px; font-size: 20px; font-weight: bold; background: purple; color: rgb(255, 255, 255); width: 14.2857%; font-family: Arial;"
+              colspan="4" id="artist" align="center"></td>
+          </tr>
+        </tbody>
+      </table>
+      <br>
+    </center>
+  </div>
+  <br>
+</body>
+
+</html>

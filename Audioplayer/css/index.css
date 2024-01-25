@@ -1,0 +1,57 @@
+.selTrack {
+  outline: 4px solid lime;
+}
+
+#btn4 {
+  background: #00002c;
+  border: 4px outset #00002c;
+  font-size: 16px;
+  width: 80px;
+  height: 30px;
+}
+
+#videotable td {
+  width:10%;
+  height:25px;
+  font-weight:bold;
+  color:white;
+  font-size:20px;
+  background:#151515;
+}
+
+#trforw, #trrew {
+  background: #191a00;
+  font-weight: bold;
+  font-family: Arial;
+  font-size: 16px;
+  color: white;
+  border: 4px outset #191a00;
+  border-radius: 15px;
+}
+
+#trackarea {
+  height: 280px;
+  overflow: auto;
+}
+
+#player1 {
+  display: none;
+}
+
+#full1 {
+  border: 4px outset silver;
+}
+
+@media screen and (min-width: 1600px) {
+  #trforw, #trrew, #btn4 {
+  width: 200px;
+  height: 50px;
+  font-size: 26px;
+  border-radius: 15px;
+	}
+
+ #del1 {
+ width: 50px;
+ height: 50px;
+	}
+}
